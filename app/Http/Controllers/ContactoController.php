@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contacto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactoController extends Controller
 {
@@ -30,32 +31,30 @@ class ContactoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'name' => ['required'],
             'email' => ['required', 'string', 'email'],
             'phone' => ['required', 'integer'],
-            'message' => ['required', 'min:4']
+            'message' => ['required', 'min:4'],
         ]);
 
         $contacto = Contacto::create([
-            'name' => $request["name"],
-            'email' => $request["email"],
-            'phone' => $request["phone"],
-            'message' => $request["message"]
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'phone' => $request['phone'],
+            'message' => $request['message'],
         ]);
 
-        // $details = [
-        //     'title' => 'Area: ' . $area->nombre,
-        //     'body' => 'interno: ' . $area->interno
-        // ];
+        $details = [
+            'title' => 'Contacto: ' . $contacto->name,
+            'body' => 'Datos: ' . $contacto->email . ', ' . $contacto->phone . ', ' . $contacto->message,
+        ];
 
-        // Mail::to('milanoliliana129@gmail.com')->send(new \App\Mail\sendPost($details));
+        Mail::to('pin2203.g4@gmail.com')->send(new \App\Mail\sendPost($details));
 
         return response()->json([
             'mensaje' => 'Se Agrego correctamente el contacto',
@@ -66,7 +65,6 @@ class ContactoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
     public function show(Contacto $contacto)
@@ -77,7 +75,6 @@ class ContactoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
     public function edit(Contacto $contacto)
@@ -88,8 +85,6 @@ class ContactoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Contacto $contacto)
@@ -100,7 +95,6 @@ class ContactoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contacto  $contacto
      * @return \Illuminate\Http\Response
      */
     public function destroy(Contacto $contacto)
