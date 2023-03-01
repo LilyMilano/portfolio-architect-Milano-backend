@@ -18,12 +18,16 @@ El presente desarrollo se expondrá vía web con su correspondiente frontend res
 ## Alcance del Proyecto:
 
 -   Creación de servicio API REST. Fue probada con el software 'Postman Inc'.
+
 ![postman-response](readme/api_postman.jpg)
 
 -   Envío del formulario vía email. Se utilizó la plataforma 'Mailtrap by railsware'. 
+[Disposable email domains](https://raw.githubusercontent.com/disposable/disposable-email-domains/master/domains.txt)
+
 ![envío-email-response](readme/mailtrap_pin2203.png)
 
--   Almacenamiento de los datos en la base de datos: 'dbpin2203'. 
+-   Almacenamiento de los datos en la base de datos: 'dbpin2203'.
+
 ![mysql-response](readme/dbpin2203backend.png)
 
 ## Ejecución Local del Proyecto:
