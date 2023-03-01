@@ -36,17 +36,17 @@ class ContactoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required'],
-            'email' => ['required', 'string', 'email'],
-            'phone' => ['required', 'integer', 'digits:8'],
-            'message' => ['required', 'min:4'],
+            'name' => ["required", "string", "max:255"],
+            'email' => ["required", "string", "email", "max:255", "unique:contactos","indisposable"],
+            'phone' => ["required", "integer", "digits:8"],
+            'message' => ["required", "min:4"],
         ]);
 
         $contacto = Contacto::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'phone' => $request['phone'],
-            'message' => $request['message'],
+            'name' => $request["name"],
+            'email' => $request["email"],
+            'phone' => $request["phone"],
+            'message' => $request["message"],
         ]);
 
         $details = [
