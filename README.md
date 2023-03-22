@@ -7,13 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## PIN 2203 - Grupo 4 - PET ADOPCIONES SPA - BACKEND
+## PIN 2203 - Liliana Milano - PET ADOPCIONES SPA - BACKEND
 
 Para poner en evidencia lo aprendido durante el dictado se presenta el desarrollo backend de una aplicación web, en Laravel 9. Corresponde a una sección de formulario con validación clara del lado del servidor.
 
 El proyecto  contempló la creación de una API REST en Laravel 9 con las funcionalidades de: envío de formulario vía mail y almacenamiento de los datos del envío en una base de datos (MySQL).
 
 El presente desarrollo se expondrá vía web con su correspondiente frontend responsive en ReactJS.
+
+## Servicio API REST y Endpoint:
+[API REST](https://adopciones-pin2203-g4-backend-production.up.railway.app/): https://adopciones-pin2203-g4-backend-production.up.railway.app/
+Endpoint: https://adopciones-pin2203-g4-backend-production.up.railway.app/index.php/api/insertContactos
 
 ## Alcance del Proyecto:
 
