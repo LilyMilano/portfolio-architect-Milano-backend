@@ -38,7 +38,7 @@ class ContactoController extends Controller
         $request->validate([
             'name' => ["required", "string", "max:255"],
             'email' => ["required", "string", "email", "max:255", "unique:contactos","indisposable"],
-            'phone' => ["required", "integer", "digits:8"],
+            'phone' => ["required", "integer"],
             'message' => ["required", "min:4"],
         ]);
 
