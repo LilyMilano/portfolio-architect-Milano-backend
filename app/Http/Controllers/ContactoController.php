@@ -37,7 +37,7 @@ class ContactoController extends Controller
     {
         $request->validate([
             'name' => ["required", "string", "max:255"],
-            'email' => ["required", "string", "email", "max:255", "unique:contactos","indisposable"],
+            'email' => ["required", "string", "email", "max:255", "indisposable"],
             'phone' => ["required", "integer"],
             'message' => ["required", "min:4"],
         ]);
@@ -54,7 +54,7 @@ class ContactoController extends Controller
             'body' => 'Datos: ' . $contacto->email . ', ' . $contacto->phone . ', ' . $contacto->message,
         ];
 
-        Mail::to('pin2203.g4@gmail.com')->send(new \App\Mail\sendPost($details));
+        Mail::to("archt.adrianamilano@gmail.com")->send(new \App\Mail\sendPost($details));
 
         return response()->json([
             'mensaje' => 'Se Agrego correctamente el contacto',
